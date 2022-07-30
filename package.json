@@ -1,0 +1,16 @@
+{
+  "name": "BotTacoTools",
+  "version": "1.0.0",
+  "description": "Discord bot implementation for TacoShackTools",
+  "main": "index.js",
+  "scripts": {
+    "main": "node index.js"
+  },
+  "keywords": [],
+  "author": "SEG",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.7.0",
+    "dotenv": "^16.0.1"
+  }
+}
