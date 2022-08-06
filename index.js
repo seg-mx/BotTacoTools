@@ -7,7 +7,7 @@ const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_M
 
 const data = require('./data.json');
 const {loadData, saveData} = require('./src/dataManager.js');
-const {sortMap} = require('./src/utils.js');
+const {sortMap, sortMapByPrice} = require('./src/utils.js');
 const sendStats = require('./src/stats.js');
 const buyList = new Map();
 
@@ -64,7 +64,12 @@ function executeBotCommand(message) {
             message.channel.send(":white_check_mark: El prefix ahora es `"+args[1]+"`");
             return;
         case "next":
-            let array = sortMap(upgrades);
+            let array;
+            if (args[1] == "price") {
+                array = sortMapByPrice(upgrades);
+            } else {
+                array = sortMap(upgrades);
+            }
             if (array.length == 0) {
                 message.channel.send(":x: No hay más mejoras");
                 return;

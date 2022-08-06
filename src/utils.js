@@ -22,4 +22,15 @@ function sortMap(upgradesMap) {
     return upgrades;
 }
 
-module.exports = {getPrice, sortMap};
+function sortMapByPrice(upgradesMap) {
+    let upgrades = Array.from(upgradesMap.values());
+    upgrades = upgrades.filter(up => !up.isCompleted);
+
+    upgrades.sort((a, b) => {
+        return a.price - b.price;
+    });
+
+    return upgrades;
+}
+
+module.exports = {getPrice, sortMap, sortMapByPrice};
